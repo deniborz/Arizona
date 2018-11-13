@@ -2,12 +2,20 @@ package be.ucll.da.dentravak.model;
 
 import java.math.BigDecimal;
 import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Sandwich {
+    @Id
+    @GeneratedValue
     private UUID id;
     private String name;
     private String ingredient;
     private BigDecimal price;
+
+    private Sandwich(){}
 
     public UUID getId() {
         return id;
@@ -26,21 +34,15 @@ public class Sandwich {
     }
 
     private Sandwich(SandwichBuilder builder){
-        this.id = builder.id;
         this.name = builder.name;
         this.ingredient = builder.ingredient;
         this.price = builder.price;
     }
 
     public static class SandwichBuilder{
-        private UUID id;
         private String name;
         private String ingredient;
         private BigDecimal price;
-
-        public SandwichBuilder setId(UUID id) {
-            this.id = id; return this;
-        }
 
         public SandwichBuilder setName(String name) {
             this.name = name; return this;
