@@ -1,5 +1,7 @@
 package be.ucll.da.dentravak;
+import be.ucll.da.dentravak.model.Order;
 import be.ucll.da.dentravak.model.Sandwich;
+import be.ucll.da.dentravak.repositories.OrderRepository;
 import be.ucll.da.dentravak.repositories.SandwichRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,10 +17,11 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
     @Bean
-    public CommandLineRunner demo(SandwichRepository repository) {
+    public CommandLineRunner demo(SandwichRepository sandwichRepository, OrderRepository orderRepository) {
         return (args) -> {
-            repository.save(new Sandwich.SandwichBuilder().setName("Broodje kaas").setIngredient("kaas").setPrice(new BigDecimal(3.2)).build());
-            repository.save(new Sandwich.SandwichBuilder().setName("Broodje hesp").setIngredient("hesp").setPrice(new BigDecimal(3.5)).build());
+            Sandwich sandwich = new Sandwich.SandwichBuilder().setName("Broodje kaas").setIngredient("kaas").setPrice(new BigDecimal(3.2)).build();
+            sandwichRepository.save(sandwich);
+            orderRepository.save(new Order.OrderBuilder().setPhoneNumber("04...").withSandwich(sandwich).build());
         };
     }
 }
