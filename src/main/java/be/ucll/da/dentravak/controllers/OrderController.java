@@ -9,9 +9,8 @@ import java.util.List;
 @RestController
 public class OrderController {
     private OrderRepository repository;
-    public OrderController(OrderRepository repository){
-        this.repository = repository;
-    }
+    public OrderController(OrderRepository repository){ this.repository = repository; }
+
     @RequestMapping("/orders")
     public List<Order> getOrders(){
         return repository.findAll();

@@ -13,6 +13,7 @@ public class SandwichController {
     public SandwichController(SandwichRepository repository){
         this.repository = repository;
     }
+
     @RequestMapping("/test")
     public Sandwich test() {
         return new Sandwich.SandwichBuilder()
@@ -20,6 +21,7 @@ public class SandwichController {
                 .setName("broodje kaas!!!")
                 .setPrice(new BigDecimal(3.5)).build();
     }
+
     @RequestMapping("/sandwiches")
     public List<Sandwich> getSandwiches(){
         return repository.findAll();

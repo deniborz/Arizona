@@ -2,10 +2,12 @@ package be.ucll.da.dentravak.model;
 
 import javax.persistence.*;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import be.ucll.da.dentravak.model.Sandwich;
 
 @Entity
+@Table(name = "order_table")
 public class Order {
     //TODO broodtype hier of in sandwich?
     //https://github.com/rdehuyss/ucll-dentravak/projects/1
@@ -14,7 +16,7 @@ public class Order {
     private UUID id;
     private String phoneNumber;
     @OneToMany
-    private HashMap<UUID, Sandwich> sandwiches;
+    private Map<UUID, Sandwich> sandwiches;
 
     private Order(){}
 
@@ -26,7 +28,7 @@ public class Order {
         return phoneNumber;
     }
 
-    public HashMap<UUID, Sandwich> getSandwiches() {
+    public Map<UUID, Sandwich> getSandwiches() {
         return sandwiches;
     }
 
