@@ -1,6 +1,7 @@
 package be.ucll.da.dentravak.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -15,6 +16,7 @@ public class Order {
     @GeneratedValue
     private UUID id;
     private String phoneNumber;
+    private LocalDateTime date;
     @OneToMany
     private Map<UUID, Sandwich> sandwiches;
 
@@ -24,15 +26,16 @@ public class Order {
         return id;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+    public String getPhoneNumber() { return phoneNumber; }
+
+    public LocalDateTime getDate() { return date; }
 
     public Map<UUID, Sandwich> getSandwiches() {
         return sandwiches;
     }
 
     private Order(OrderBuilder builder){
+        this.date = LocalDateTime.now();
         this.phoneNumber = builder.phoneNumber;
         this.sandwiches = builder.sandwiches;
     }
