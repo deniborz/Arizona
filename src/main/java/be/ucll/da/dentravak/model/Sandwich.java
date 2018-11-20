@@ -12,7 +12,7 @@ public class Sandwich {
     @GeneratedValue
     private UUID id;
     private String name;
-    private String ingredient;
+    private String ingredients;
     private BigDecimal price;
 
     private Sandwich(){}
@@ -25,8 +25,8 @@ public class Sandwich {
         return name;
     }
 
-    public String getIngredient() {
-        return ingredient;
+    public String getIngredients() {
+        return ingredients;
     }
 
     public BigDecimal getPrice() {
@@ -35,21 +35,21 @@ public class Sandwich {
 
     private Sandwich(SandwichBuilder builder){
         this.name = builder.name;
-        this.ingredient = builder.ingredient;
+        this.ingredients = builder.ingredients;
         this.price = builder.price;
     }
 
     public static class SandwichBuilder{
         private String name;
-        private String ingredient;
+        private String ingredients;
         private BigDecimal price;
 
         public SandwichBuilder setName(String name) {
             this.name = name; return this;
         }
 
-        public SandwichBuilder setIngredient(String ingredient) {
-            this.ingredient = ingredient; return this;
+        public SandwichBuilder setIngredients(String ingredient) {
+            this.ingredients = ingredient; return this;
         }
 
         public SandwichBuilder setPrice(BigDecimal price) {

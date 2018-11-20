@@ -2,10 +2,7 @@ package be.ucll.da.dentravak.controllers;
 
 import be.ucll.da.dentravak.model.Order;
 import be.ucll.da.dentravak.repositories.OrderRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -19,17 +16,19 @@ public class OrderController {
     private OrderRepository repository;
     public OrderController(OrderRepository repository){ this.repository = repository; }
 
-    /*
-    @RequestMapping("/orders")
-    public List<Order> getOrders(){
-        return repository.findAll();
-    }*/
-
     @PostMapping("/orders")
-    public List<Order> postOrders(){ return repository.findAll(); }
+    public Order postOrders(@RequestBody Order order){
+        repository.save(order);
+        return order;
+    }
 
     @RequestMapping("/orders")
-    public List<Order> getOrdersByDate(@RequestParam(value = "date") String date) { return this.findByDate(date); }
+    public List<Order> getOrdersByDate(@RequestParam(value = "date", required = false) String date) {
+        if (date == null){
+            return repository.findAll();
+        }
+        return this.findByDate(date);
+    }
 
     public List<Order> findByDate(String date) {
         List<Order> orders = repository.findAll();
@@ -37,7 +36,7 @@ public class OrderController {
         LocalDate filterDate = LocalDate.parse(date);
 
         for (Order order : orders) {
-            if (order.getDate().toLocalDate().toString().equals(filterDate.toString())) {
+            if (order.getCreationDate().toLocalDate().toString().equals(filterDate.toString())) {
                 filteredOrders.add(order);
             }
         }

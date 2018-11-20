@@ -19,9 +19,6 @@ public class Application {
     @Bean
     public CommandLineRunner demo(SandwichRepository sandwichRepository, OrderRepository orderRepository) {
         return (args) -> {
-            Sandwich sandwich = new Sandwich.SandwichBuilder().setName("Broodje kaas").setIngredient("kaas").setPrice(new BigDecimal(3.2)).build();
-            sandwichRepository.save(sandwich);
-            orderRepository.save(new Order.OrderBuilder().setPhoneNumber("04...").withSandwich(sandwich).build());
         };
     }
 }

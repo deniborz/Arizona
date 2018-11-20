@@ -1,65 +1,97 @@
 package be.ucll.da.dentravak.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
-import be.ucll.da.dentravak.model.Sandwich;
+import java.time.ZoneId;
 
 @Entity
 @Table(name = "order_table")
-public class Order {
-    //TODO broodtype hier of in sandwich?
-    //https://github.com/rdehuyss/ucll-dentravak/projects/1
+public class Order {    
     @Id
     @GeneratedValue
     private UUID id;
-    private String phoneNumber;
-    private LocalDateTime date;
-    @OneToMany
-    private Map<UUID, Sandwich> sandwiches;
+    private String mobilePhoneNumber;
+    private String breadType;
+    private UUID sandwichId;
+    private BigDecimal price;
+    private LocalDateTime creationDate;
+    private String name;
 
-    private Order(){}
+    public Order(){
+        this.creationDate = LocalDateTime.now(ZoneId.systemDefault());
+    }
 
     public UUID getId() {
         return id;
     }
 
-    public String getPhoneNumber() { return phoneNumber; }
+    public String getMobilePhoneNumber() {
+        return mobilePhoneNumber;
+    }
 
-    public LocalDateTime getDate() { return date; }
+    public String getBreadType() {
+        return breadType;
+    }
 
-    public Map<UUID, Sandwich> getSandwiches() {
-        return sandwiches;
+    public UUID getSandwichId() {
+        return sandwichId;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public String getName() {
+        return name;
     }
 
     private Order(OrderBuilder builder){
-        this.date = LocalDateTime.now();
-        this.phoneNumber = builder.phoneNumber;
-        this.sandwiches = builder.sandwiches;
+        this.creationDate = LocalDateTime.now(ZoneId.systemDefault());
+        this.mobilePhoneNumber = builder.mobilePhoneNumber;
+        this.breadType = builder.breadType;
+        this.sandwichId = builder.sandwichId;
+        this.price = builder.price;
+        this.name = builder.name;
     }
 
     public static class OrderBuilder{
-        private String phoneNumber;
-        private HashMap<UUID, Sandwich> sandwiches;
+        private String mobilePhoneNumber;
+        private String breadType;
+        private UUID sandwichId;
+        private BigDecimal price;
+        private String name;
 
-        public OrderBuilder setPhoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;return this;
-        }
 
-        public OrderBuilder setSandwiches(HashMap<UUID, Sandwich> sandwiches) {
-            this.sandwiches = sandwiches;return this;
-        }
-
-        public OrderBuilder withSandwich(Sandwich sandwich){
-            if (sandwiches == null){
-                sandwiches = new HashMap<>();
-            }
-            sandwiches.put(sandwich.getId(), sandwich);
+        public OrderBuilder setMobilePhoneNumber(String mobilePhoneNumber) {
+            this.mobilePhoneNumber = mobilePhoneNumber;
             return this;
         }
 
+        public OrderBuilder setBreadType(String breadType) {
+            this.breadType = breadType;
+            return this;
+        }
+
+        public OrderBuilder setSandwichId(UUID sandwichId) {
+            this.sandwichId = sandwichId;
+            return this;
+        }
+
+        public OrderBuilder setPrice(BigDecimal price) {
+            this.price = price;
+            return this;
+        }
+
+        public OrderBuilder setName(String name){
+            this.name = name;
+            return this;
+        }
         public Order build(){
             return new Order(this);
         }
