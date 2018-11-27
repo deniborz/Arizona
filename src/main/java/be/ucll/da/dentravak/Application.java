@@ -19,6 +19,16 @@ public class Application {
     @Bean
     public CommandLineRunner demo(SandwichRepository sandwichRepository, OrderRepository orderRepository) {
         return (args) -> {
+            BigDecimal SmosKaas = new BigDecimal(3.25);
+            BigDecimal SmosHesp = new BigDecimal(3.50);
+            sandwichRepository.save(new Sandwich.SandwichBuilder()
+                    .setIngredients("Kaas, mayonaise, tomaten, sla en eieren.")
+                    .setName("Smos Kaas")
+                    .setPrice(SmosKaas).build());
+            sandwichRepository.save(new Sandwich.SandwichBuilder()
+                    .setIngredients("Kaas, hesp, mayonaise, tomaten, sla en eieren.")
+                    .setName("Smos Hesp")
+                    .setPrice(SmosHesp).build());
         };
     }
 }
