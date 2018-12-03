@@ -2,7 +2,7 @@ package be.ucll.da.dentravak.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public enum SandwichType {
+public enum BreadTypeEnum {
 
     @JsonProperty("Turkish bread")
     TURKISH_BREAD("Turkish bread"),
@@ -13,7 +13,7 @@ public enum SandwichType {
 
     private String name;
 
-    SandwichType(String name) {
+    BreadTypeEnum(String name) {
         this.name = name;
     }
 

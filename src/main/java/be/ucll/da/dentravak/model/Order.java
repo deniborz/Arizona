@@ -13,7 +13,7 @@ public class Order {
     @GeneratedValue
     private UUID id;
     private String mobilePhoneNumber;
-    private Enum breadType;
+    private BreadTypeEnum breadType;
     private UUID sandwichId;
     private BigDecimal price;
     private LocalDateTime creationDate;
@@ -62,7 +62,7 @@ public class Order {
 
     public static class OrderBuilder{
         private String mobilePhoneNumber;
-        private Enum breadType;
+        private BreadTypeEnum breadType;
         private UUID sandwichId;
         private BigDecimal price;
         private String name;
@@ -73,7 +73,7 @@ public class Order {
             return this;
         }
 
-        public OrderBuilder setBreadType(Enum breadType) {
+        public OrderBuilder setBreadType(BreadTypeEnum breadType) {
             this.breadType = breadType;
             return this;
         }

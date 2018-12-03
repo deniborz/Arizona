@@ -50,7 +50,7 @@ function getSandwich(id) {
         .then((resp) => resp.json())
         .then(function(data) {
             let sandwich = data;
-
+            localStorage.setItem("sandwich", JSON.stringify(sandwich));
             let card =  document.createElement('div');
             let cardBody =  document.createElement('div');
             let cardTitle =  document.createElement('h5');
@@ -67,7 +67,8 @@ function getSandwich(id) {
             cardPrice.classList.add("text-muted");
             cardText.classList.add("card-text");
             cardButton.classList.add("card-link");
-            cardButton.href = "javascript:console.log('" + sandwich.name + ", " + sandwich.ingredients + ", " + sandwich.price + "')";
+            //cardButton.href = "javascript:console.log('" + sandwich.name + ", " + sandwich.ingredients + ", " + sandwich.price + "')";
+            cardButton.addEventListener("click", postOrder);
             cardBody.appendChild(cardTitle);
             cardBody.appendChild(cardPrice);
             cardBody.appendChild(cardText);
@@ -152,4 +153,44 @@ function getAllUrlParams(url) {
     }
 
     return obj;
+}
+
+function postOrder(){
+    let sandwich = JSON.parse(localStorage.getItem("sandwich"))
+    let breadType = '';
+    let radios = document.getElementsByName('breadType');
+    let phoneNumber = document.getElementById('phoneNumber').value;
+
+    for (let i = 0, length = radios.length; i < length; i++)
+    {
+        if (radios[i].checked)
+        {
+            breadType = radios[i].value;
+            break;
+        }
+    }
+
+    let data = {
+        name: 'test name',
+        sandwichId: sandwich.id,
+        breadType: breadType,
+        price: sandwich.price,
+        mobilePhoneNumber: phoneNumber
+    }
+
+    console.log(data)
+
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        'type': 'POST',
+        'url': '/orders',
+        'data': JSON.stringify(data),
+        'dataType': 'json',
+        success: function (){
+            console.log('success!')
+        }
+    });
 }
