@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2de57fe6-eea8-4365-94cb-da170e2ae3ba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/SandwichController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/SandwichController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/model/BreadTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/model/BreadTypeEnum.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -96,7 +91,7 @@
           <entry key="css" value="1" />
           <entry key="gradle" value="3" />
           <entry key="html" value="4" />
-          <entry key="java" value="19" />
+          <entry key="java" value="21" />
           <entry key="js" value="3" />
           <entry key="json" value="4" />
           <entry key="scss" value="2" />
@@ -107,7 +102,7 @@
           <entry key="CSS" value="1" />
           <entry key="Groovy" value="3" />
           <entry key="HTML" value="4" />
-          <entry key="JAVA" value="19" />
+          <entry key="JAVA" value="21" />
           <entry key="JSON" value="4" />
           <entry key="JavaScript" value="3" />
           <entry key="SCSS" value="2" />
@@ -121,7 +116,7 @@
           <entry key="js" value="933" />
           <entry key="json" value="8" />
           <entry key="scss" value="223" />
-          <entry key="txt" value="33" />
+          <entry key="txt" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -131,7 +126,7 @@
           <entry key="JAVA" value="709" />
           <entry key="JSON" value="8" />
           <entry key="JavaScript" value="933" />
-          <entry key="PLAIN_TEXT" value="33" />
+          <entry key="PLAIN_TEXT" value="72" />
           <entry key="SCSS" value="223" />
         </counts>
       </usages-collector>
@@ -147,7 +142,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/SandwichController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="377">
@@ -197,6 +192,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/model/Order.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1003">
+              <caret line="75" column="45" selection-start-line="75" selection-start-column="45" selection-end-line="75" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/Application.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -220,24 +227,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="411">
               <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/node/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -722,6 +711,7 @@
         <option value="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/OrderController.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/SandwichController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/model/BreadTypeEnum.java" />
       </list>
     </option>
   </component>
@@ -891,7 +881,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543847356688" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543863223705" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -947,7 +937,7 @@
       <workItem from="1542706207224" duration="1587000" />
       <workItem from="1542707911132" duration="4773000" />
       <workItem from="1543266131818" duration="18559000" />
-      <workItem from="1543839092973" duration="5817000" />
+      <workItem from="1543839092973" duration="7336000" />
     </task>
     <task id="LOCAL-00001" summary="Added front-end">
       <created>1543287918230</created>
@@ -956,11 +946,18 @@
       <option name="project" value="LOCAL" />
       <updated>1543287918230</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added cart cookies (not sure if it works yet)">
+      <created>1543849777620</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1543849777620</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37013000" />
+    <option name="totallyTimeSpent" value="38532000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -996,7 +993,7 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.08510638" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32968238" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32968238" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1054,13 +1051,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added front-end" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added front-end" />
+    <MESSAGE value="Added cart cookies (not sure if it works yet)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added cart cookies (not sure if it works yet)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/repositories/OrderRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="42" lean-forward="true" selection-start-column="42" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1068,6 +1069,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding>
+            <element signature="e#185#186#0" expanded="true" />
+            <element signature="e#217#218#0" expanded="true" />
+            <element signature="e#187#188#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1075,13 +1082,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="553">
           <caret line="47" column="21" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/model/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="75" column="45" selection-start-line="75" selection-start-column="45" selection-end-line="75" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1156,13 +1159,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/node/package-lock.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1181,6 +1177,30 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1695#1696#0" expanded="true" />
             <element signature="e#1743#1744#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/controllers/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/model/BreadTypeEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/be/ucll/da/dentravak/model/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="75" column="45" selection-start-line="75" selection-start-column="45" selection-end-line="75" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
