@@ -1,6 +1,8 @@
 package be.ucll.da.dentravak.controllers;
 
+import com.google.gson.Gson;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -10,6 +12,9 @@ import javassist.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class SandwichController {
@@ -53,5 +58,34 @@ public class SandwichController {
                 .setPrice(sandwich.getPrice())
                 .setIngredients(sandwich.getIngredients())
                 .build());
+    }
+
+    @RequestMapping("/sandwiches/cart")
+    public List<Sandwich> saveSandwichToCart(@CookieValue(value = "sandwiches", defaultValue = "niks") String sandwiches){
+        Gson googleJson = new Gson();
+        ArrayList sandwichList = googleJson.fromJson(sandwiches, ArrayList.class);
+        return sandwichList;
+    }
+
+    @PostMapping("/sandwiches/cart")
+    public void saveSandwichToCart(@RequestBody Sandwich sandwich,
+                             @CookieValue(value = "sandwiches", defaultValue = "niks") String sandwiches,
+                             HttpServletResponse response){
+
+        Sandwich savedSandwich = new Sandwich.SandwichBuilder()
+                .setName(sandwich.getName())
+                .setPrice(sandwich.getPrice())
+                .setIngredients(sandwich.getIngredients())
+                .build();
+
+        ArrayList<Sandwich> savedSandwiches = new ArrayList<>();
+        if(sandwiches != null || !sandwiches.isEmpty()) {
+            Gson googleJson = new Gson();
+            savedSandwiches = googleJson.fromJson(sandwiches, ArrayList.class);
+            System.out.println(sandwiches);
+        }
+        savedSandwiches.add(savedSandwich);
+        System.out.println(savedSandwiches);
+        response.addCookie(new Cookie("sandwiches", savedSandwiches.toString()));
     }
 }
