@@ -8627,6 +8627,11 @@ body {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+.nav .navbar-brand-extra {
+  line-height: 2.5;
+  color: white;
+  margin-bottom: 0;
+}
 .nav .nav-link {
   color: white;
   -o-transition: 0.3s;
@@ -8644,6 +8649,9 @@ body {
 }
 .container .card {
   max-width: 20%;
+}
+.container .card .radio-text {
+  display: inline;
 }
 
 /*# sourceMappingURL=main.css.map */

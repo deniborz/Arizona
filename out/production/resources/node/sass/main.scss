@@ -19,6 +19,12 @@ body {
     transition:.3s;
   }
 
+  .navbar-brand-extra {
+    line-height: 2.5;
+    color: white;
+    margin-bottom: 0;
+  }
+
   .nav-link {
     color: white;
 
@@ -39,5 +45,9 @@ body {
 
   .card {
     max-width: 20%;
+
+    .radio-text {
+      display: inline;
+    }
   }
 }

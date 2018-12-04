@@ -15,21 +15,26 @@ function getSandwiches () {
                 let cardPrice =  document.createElement('h6');
                 let cardText =  document.createElement('p');
                 let cardButton =  document.createElement('a');
+
                 cardTitle.innerHTML = sandwich.name;
                 cardPrice.innerHTML = "€" + sandwich.price.toFixed(2);
                 cardText.innerHTML = sandwich.ingredients;
                 cardButton.innerHTML = "Go to checkout";
+
                 cardTitle.classList.add("card-title");
                 cardPrice.classList.add("card-subtitle");
                 cardPrice.classList.add("mb-2");
                 cardPrice.classList.add("text-muted");
                 cardText.classList.add("card-text");
                 cardButton.classList.add("card-link");
+
                 cardButton.href = "checkout.html?id=" + sandwich.id;
+
                 cardBody.appendChild(cardTitle);
                 cardBody.appendChild(cardPrice);
                 cardBody.appendChild(cardText);
                 cardBody.appendChild(cardButton);
+
                 cardBody.classList.add("card-body");
                 card.appendChild(cardBody);
                 card.classList.add("card");
@@ -48,40 +53,90 @@ function getSandwich(id) {
 
     fetch(url)
         .then((resp) => resp.json())
-        .then(function(data) {
+        .then(function (data) {
             let sandwich = data;
             localStorage.setItem("sandwich", JSON.stringify(sandwich));
-            let card =  document.createElement('div');
-            let cardBody =  document.createElement('div');
-            let cardTitle =  document.createElement('h5');
-            let cardPrice =  document.createElement('h6');
-            let cardText =  document.createElement('p');
-            let cardButton =  document.createElement('a');
+            let card = document.createElement('div');
+            let cardBody = document.createElement('div');
+            let cardTitle = document.createElement('h5');
+            let cardPrice = document.createElement('h6');
+            let cardText = document.createElement('p');
+            let phoneNumber = document.createElement('input');
+            let bread1 = document.createElement('input');
+            let bread1Text = document.createElement('p');
+            let bread2 = document.createElement('input');
+            let bread2Text = document.createElement('p');
+            let bread3 = document.createElement('input');
+            let bread3Text = document.createElement('p');
+            let cardButton = document.createElement('a');
+            let emptyBreak00 = document.createElement('br');
+            let emptyBreak0 = document.createElement('br');
+            let emptyBreak1 = document.createElement('br');
+            let emptyBreak2 = document.createElement('br');
+            let emptyBreak3 = document.createElement('br');
+            let emptyBreak4 = document.createElement('br');
+
             cardTitle.innerHTML = sandwich.name;
             cardPrice.innerHTML = "€" + sandwich.price.toFixed(2);
             cardText.innerHTML = sandwich.ingredients;
             cardButton.innerHTML = "Order now";
+            bread1Text.innerHTML = "Boterhammekes";
+            bread2Text.innerHTML = "Turkish bread";
+            bread3Text.innerHTML = "Wrap";
+
             cardTitle.classList.add("card-title");
             cardPrice.classList.add("card-subtitle");
             cardPrice.classList.add("mb-2");
             cardPrice.classList.add("text-muted");
             cardText.classList.add("card-text");
+            bread1Text.classList.add("radio-text");
+            bread2Text.classList.add("radio-text");
+            bread3Text.classList.add("radio-text");
             cardButton.classList.add("card-link");
-            //cardButton.href = "javascript:console.log('" + sandwich.name + ", " + sandwich.ingredients + ", " + sandwich.price + "')";
+
+            phoneNumber.type = "text";
+            phoneNumber.id = "phoneNumber";
+            phoneNumber.name = "phoneNumber";
+            phoneNumber.placeholder = "Enter your phonenumber";
+            bread1.type = "radio";
+            bread1.name = "breadType";
+            bread1.value = "Boterhammekes";
+            bread2.type = "radio";
+            bread2.name = "breadType";
+            bread2.value = "Turkish bread";
+            bread3.type = "radio";
+            bread3.name = "breadType";
+            bread3.value = "Wrap";
+
+            cardButton.href = "javascript:console.log('" + sandwich.name + ", " + sandwich.ingredients + ", " + sandwich.price + "')";
             cardButton.addEventListener("click", postOrder);
             cardBody.appendChild(cardTitle);
             cardBody.appendChild(cardPrice);
             cardBody.appendChild(cardText);
+            cardBody.appendChild(phoneNumber);
+            cardBody.appendChild(emptyBreak00);
+            cardBody.appendChild(emptyBreak0);
+            cardBody.appendChild(bread1);
+            cardBody.appendChild(bread1Text);
+            cardBody.appendChild(emptyBreak1);
+            cardBody.appendChild(bread2);
+            cardBody.appendChild(bread2Text);
+            cardBody.appendChild(emptyBreak2);
+            cardBody.appendChild(bread3);
+            cardBody.appendChild(bread3Text);
+            cardBody.appendChild(emptyBreak3);
+            cardBody.appendChild(emptyBreak4);
             cardBody.appendChild(cardButton);
+
             cardBody.classList.add("card-body");
             card.appendChild(cardBody);
             card.classList.add("card");
             div.appendChild(card);
 
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log(error);
-        });
+        })
 }
 
 function getActiveId() {
@@ -155,8 +210,8 @@ function getAllUrlParams(url) {
     return obj;
 }
 
-function postOrder(){
-    let sandwich = JSON.parse(localStorage.getItem("sandwich"))
+function postOrder() {
+    let sandwich = JSON.parse(localStorage.getItem("sandwich"));
     let breadType = '';
     let radios = document.getElementsByName('breadType');
     let phoneNumber = document.getElementById('phoneNumber').value;
@@ -171,16 +226,31 @@ function postOrder(){
     }
 
     let data = {
-        name: 'test name',
+        name: sandwich.name,
         sandwichId: sandwich.id,
         breadType: breadType,
         price: sandwich.price,
         mobilePhoneNumber: phoneNumber
     }
 
-    console.log(data)
+    console.log(data);
 
-    $.postJSON("/orders", data , function(result){
-        console.log(result)
-    });
+    if(breadType == "" || phoneNumber.trim() == "") {
+        alert("Gelieve elk veld in te vullen");
+    } else {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            'type': 'POST',
+            'url': '/orders',
+            'data': JSON.stringify(data),
+            'dataType': 'json',
+            success: function (){
+                console.log('success!');
+                location.href = "index.html";
+            }
+        });
+    }
 }
