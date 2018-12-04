@@ -37,3 +37,10 @@ dependencies {
     compile("com.h2database:h2")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+jib {
+    to {
+        image = "den-travak-app:0.0.1-SNAPSHOT"
+    }
+    allowInsecureRegistries = true
+}
