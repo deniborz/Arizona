@@ -1,15 +1,3 @@
 spring:
   application:
     name: dentravak
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        instanceId: ${spring.application.name}:${random.value}
-        healthCheckPath: /health-check
-        healthCheckInterval: 20s
-server:
-  port: 8080
-  servlet:
-    context-path: /

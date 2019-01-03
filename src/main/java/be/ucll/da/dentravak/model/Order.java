@@ -73,8 +73,8 @@ public class Order {
             return this;
         }
 
-        public OrderBuilder setBreadType(BreadTypeEnum breadType) {
-            this.breadType = breadType;
+        public OrderBuilder setBreadType(String breadType) {
+            this.breadType = BreadTypeEnum.valueOf(breadType);
             return this;
         }
 

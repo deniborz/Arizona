@@ -1,4 +1,3 @@
-
 function getSandwiches () {
 
     const div = document.getElementById('sandwiches');
@@ -101,12 +100,15 @@ function getSandwich(id) {
             bread1.type = "radio";
             bread1.name = "breadType";
             bread1.value = " Boterhammekes";
+            bread1.id = "BOTERHAMMEKES";
             bread2.type = "radio";
             bread2.name = "breadType";
             bread2.value = " Turkish bread";
+            bread1.id = "TURKISH_BREAD";
             bread3.type = "radio";
             bread3.name = "breadType";
             bread3.value = " Wrap";
+            bread1.id = "WRAP";
 
             cardButton.href = "javascript:console.log('" + sandwich.name + ", " + sandwich.ingredients + ", " + sandwich.price + "')";
             cardButton.addEventListener("click", postOrder);
@@ -220,7 +222,7 @@ function postOrder() {
     {
         if (radios[i].checked)
         {
-            breadType = radios[i].value;
+            breadType = radios[i].value.substr(1);
             break;
         }
     }
@@ -238,19 +240,15 @@ function postOrder() {
     if(breadType == "" || phoneNumber.trim() == "") {
         alert("Gelieve elk veld in te vullen");
     } else {
-        $.ajax({
+        fetch('http://localhost:8080/orders', {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            'type': 'POST',
-            'url': 'http://localhost:8080/orders',
-            'data': JSON.stringify(data),
-            'dataType': 'json',
-            success: function (){
-                console.log('success!');
-                location.href = "index.html";
-            }
-        });
+            method: 'POST',
+            body: JSON.stringify(data)
+        }).then(res => res.json())
+            .then(response => {console.log('Success, your order is being prepared.');})
+            .catch(error => console.error('Error:', error));
     }
 }
