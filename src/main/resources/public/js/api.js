@@ -1,7 +1,7 @@
 function getSandwiches () {
 
     const div = document.getElementById('sandwiches');
-    const url = 'http://localhost:8080/sandwiches';
+    const url = 'http://193.191.177.8:10098/sandwiches';
 
     fetch(url)
         .then((resp) => resp.json())
@@ -48,7 +48,7 @@ function getSandwiches () {
 function getSandwich(id) {
 
     const div = document.getElementById('sandwich');
-    const url = 'http://localhost:8080/sandwiches/' + id;
+    const url = 'http://193.191.177.8:10098/sandwiches/' + id;
 
     fetch(url)
         .then((resp) => resp.json())
@@ -240,7 +240,9 @@ function postOrder() {
     if(breadType == "" || phoneNumber.trim() == "") {
         alert("Gelieve elk veld in te vullen");
     } else {
-        fetch('http://localhost:8080/orders', {
+        const url = 'http://193.191.177.8:10098/orders';
+
+        fetch(url, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
