@@ -1,14 +1,23 @@
 package be.ucll.da.dentravak.controllers;
 
 import be.ucll.da.dentravak.model.Sandwich;
+import be.ucll.da.dentravak.model.SandwichPreferences;
 import be.ucll.da.dentravak.repositories.SandwichRepository;
 import javassist.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import javax.inject.Inject;
+import javax.naming.ServiceUnavailableException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
+import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -17,14 +26,14 @@ import java.util.UUID;
 @RestController
 public class SandwichController {
 
-    /*@Inject
-    private DiscoveryClient discoveryClient;*/
+    @Inject
+    private DiscoveryClient discoveryClient;
 
-    @Autowired
+    @Inject
     private SandwichRepository repository;
-/*
-    @Autowired
-    private RestTemplate restTemplate;*/
+
+    @Inject
+    private RestTemplate restTemplate;
 
     /*@RequestMapping("/test")
     public Sandwich test() {
@@ -48,14 +57,14 @@ public class SandwichController {
 
     @RequestMapping("/sandwiches")
     public List<Sandwich> sandwiches() {
-        /*try {
+        try {
             SandwichPreferences preferences = getPreferences("ronald.dehuysser@ucll.be");
             //TODO: sort allSandwiches by float in preferences
             List<Sandwich> sandwiches = repository.findAll();
             return sandwiches;
-        } catch (ServiceUnavailableException e) {*/
-            return repository.findAll();/*
-        }*/
+        } catch (ServiceUnavailableException e) {
+            return repository.findAll();
+        }
     }
 
 
@@ -73,7 +82,7 @@ public class SandwichController {
                 .build());
     }
 
-    /*@RequestMapping("/getpreferences/{emailAddress}")
+    @RequestMapping("/getpreferences/{emailAddress}")
     public SandwichPreferences getPreferences(@PathVariable String emailAddress) throws RestClientException, ServiceUnavailableException {
         URI service = recommendationServiceUrl()
                 .map(s -> s.resolve("/recommendation/recommend/" + emailAddress))
@@ -88,7 +97,7 @@ public class SandwichController {
                 .stream()
                 .map(si -> si.getUri())
                 .findFirst();
-    }*/
+    }
 
 //    @RequestMapping("/sandwiches/cart")
 //    public List<Sandwich> saveSandwichToCart(@CookieValue(value = "sandwiches", defaultValue = "niks") String sandwiches){
