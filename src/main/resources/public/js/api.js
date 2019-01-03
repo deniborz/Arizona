@@ -1,7 +1,7 @@
 function getSandwiches () {
 
     const div = document.getElementById('sandwiches');
-    const url = 'http://193.191.177.8:10098/sandwiches';
+    const url = 'http://193.191.177.8:10098/den-travak/sandwiches';
 
     fetch(url)
         .then((resp) => resp.json())
@@ -48,7 +48,7 @@ function getSandwiches () {
 function getSandwich(id) {
 
     const div = document.getElementById('sandwich');
-    const url = 'http://193.191.177.8:10098/sandwiches/' + id;
+    const url = 'http://193.191.177.8:10098/den-travak/sandwiches/' + id;
 
     fetch(url)
         .then((resp) => resp.json())
@@ -240,7 +240,7 @@ function postOrder() {
     if(breadType == "" || phoneNumber.trim() == "") {
         alert("Gelieve elk veld in te vullen");
     } else {
-        const url = 'http://193.191.177.8:10098/orders';
+        const url = 'http://193.191.177.8:10098/den-travak/orders';
 
         fetch(url, {
             headers: {
