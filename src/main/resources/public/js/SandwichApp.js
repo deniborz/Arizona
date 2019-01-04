@@ -1,5 +1,5 @@
 import MyCustomElement from './MyCustomElement.js';
-import './sandwichesList.js';
+import './SandwichesList.js';
 import './SandwichOrder.js';
 import './SandwichOrderConfirm.js';
 
