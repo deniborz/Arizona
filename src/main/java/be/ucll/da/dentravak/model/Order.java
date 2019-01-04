@@ -18,15 +18,20 @@ public class Order {
     private BigDecimal price;
     private LocalDateTime creationDate;
     private String name;
+    private boolean printed;
 
     public Order(){
         this.creationDate = LocalDateTime.now(ZoneId.systemDefault());
+        this.printed = false;
     }
 
     public UUID getId() {
         return id;
     }
 
+    public void printed(){
+        this.printed = true;
+    }
     public String getMobilePhoneNumber() {
         return mobilePhoneNumber;
     }
@@ -49,6 +54,10 @@ public class Order {
 
     public String getName() {
         return name;
+    }
+
+    public boolean getPrinted(){
+        return printed;
     }
 
     private Order(OrderBuilder builder){

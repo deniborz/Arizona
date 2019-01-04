@@ -1,19 +1,16 @@
 package be.ucll.da.dentravak.controllers;
 
+import be.ucll.da.dentravak.csv.CsvView;
 import be.ucll.da.dentravak.model.Order;
-import be.ucll.da.dentravak.model.Sandwich;
 import be.ucll.da.dentravak.repositories.OrderRepository;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+
+@CrossOrigin
 @RestController
 public class OrderController {
     private OrderRepository repository;
@@ -33,11 +30,17 @@ public class OrderController {
         return this.findByDate(date);
     }
 
+    @RequestMapping(value = "/download", method = RequestMethod.GET)
+    public CsvView download(Model model) {
+        model.addAttribute("orders", findByDate(LocalDate.now().toString()));
+        findByDate(LocalDate.now().toString()).forEach(order -> order.printed());
+        return new CsvView();
+    }
+
     public List<Order> findByDate(String date) {
         List<Order> orders = repository.findAll();
         List<Order> filteredOrders = new ArrayList<>();
         LocalDate filterDate = LocalDate.parse(date);
-
         for (Order order : orders) {
             if (order.getCreationDate().toLocalDate().toString().equals(filterDate.toString())) {
                 filteredOrders.add(order);
