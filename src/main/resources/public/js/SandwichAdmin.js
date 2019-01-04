@@ -16,7 +16,7 @@ class SandwichAdmin extends MyCustomElement{
       <style>
         .hidden {display:none}
       </style>
-      <order-list></sandwich-list>
+      <order-list></order-list>
     `
   }
 }

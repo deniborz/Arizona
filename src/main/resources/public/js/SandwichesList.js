@@ -3,7 +3,7 @@ import MyCustomElement from './MyCustomElement.js';
 class SandwichesList extends MyCustomElement{
   connectedCallback(){
     super.connectedCallback()
-    fetch('http://localhost:8080/sandwiches')
+    fetch('localhost:8080/den-travak/sandwiches')
       .then(response => response.json())
       .then(json => this.showSandwiches(json))
   }

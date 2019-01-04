@@ -4,7 +4,7 @@ class OrderList extends MyCustomElement{
   connectedCallback(){
     super.connectedCallback()
     let date = this.formatDate(new Date())
-    fetch(`http://localhost:8080/orders?date=${date}`)
+    fetch(`localhost:8080/den-travak/orders?date=${date}`)
       .then(response => response.json())
       .then(json => this.showOrders(json))
   }
@@ -47,7 +47,7 @@ class OrderList extends MyCustomElement{
     return `<div id="orders">
               <h3>Today's orders</h3>
             </div>
-            <a href="http://localhost:8080/download" class="btn btn-outline-success">Download</a>`
+            <a href="localhost:8080/den-travak/download" class="btn btn-outline-success">Download</a>`
   }
 }
 
