@@ -57,7 +57,7 @@ class SandwichOrder extends MyCustomElement{
   }
 
   confirmOrder(order){
-    this.postJSON('http://193.191.177.8:10098/den-travak/orders', order, () => this.successOrder(order), () => this.failOrder())
+    this.postJSON('http://193.191.177.8:10098/den-travak/orders', order, () => this.successOrder(order), (error) => console.log(error))
   }
 
   successOrder(order){
@@ -65,7 +65,7 @@ class SandwichOrder extends MyCustomElement{
   }
 
   failOrder(){
-    console.log('TODO: failed to add order!')
+    console.log('failed to add order!')
   }
 
   postJSON(url, data, successCallback, errCallback) {
