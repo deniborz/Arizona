@@ -32,8 +32,8 @@ public class OrderController {
 
     @RequestMapping(value = "/download", method = RequestMethod.GET)
     public CsvView download(Model model) {
-        model.addAttribute("orders", findByDate(LocalDate.now().toString()));
-        findByDate(LocalDate.now().toString()).forEach(order -> order.printed());
+        model.addAttribute("orders", repository.findAll());
+        repository.findAll().forEach(order -> order.printed());
         return new CsvView();
     }
 
