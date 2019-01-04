@@ -16,16 +16,14 @@ public class CsvView extends AbstractCsvView {
         response.setHeader("Content-Disposition", "attachment; filename=\"orders.csv\"");
 
         List<Order> orders = (List<Order>) model.get("orders");
-        String[] header = {"id","mobilePhoneNumber","name","sandwichId","breadType","price","creationDate"};
+        String[] header = {"id","mobilePhoneNumber","name","sandwichId","breadType","price","creationDate","printed"};
         ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(),
                 CsvPreference.STANDARD_PREFERENCE);
 
         csvWriter.writeHeader(header);
 
         for(Order order : orders){
-            if(order.getPrinted() == false){
-                csvWriter.write(order, header);
-            }
+            csvWriter.write(order, header);
         }
         csvWriter.close();
     }
