@@ -57,7 +57,7 @@ class SandwichOrder extends MyCustomElement{
   }
 
   confirmOrder(order){
-    this.postJSON('localhost:8080/den-travak/orders', order, () => this.successOrder(order), () => this.failOrder())
+    this.postJSON('http://193.191.177.8:10098/den-travak/orders', order, () => this.successOrder(order), () => this.failOrder())
   }
 
   successOrder(order){
