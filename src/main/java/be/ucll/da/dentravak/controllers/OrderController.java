@@ -16,7 +16,7 @@ public class OrderController {
     private OrderRepository repository;
     public OrderController(OrderRepository repository){ this.repository = repository; }
 
-    @PostMapping("/orders")
+    @RequestMapping(value = "/orders", method = RequestMethod.POST)
     public Order postOrders(@RequestBody Order order){
         repository.save(order);
         return order;

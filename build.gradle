@@ -7,6 +7,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'com.google.cloud.tools.jib' version '0.10.0'
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -26,11 +30,20 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
-    compile("com.google.code.gson:gson")
-    compile("com.h2database:h2")
-    compile group: 'org.apache.poi', name: 'poi', version: '3.9'
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.cloud:spring-cloud-starter-consul-discovery:2.0.1.RELEASE')
+    compile('mysql:mysql-connector-java:8.0.13')
+    compile('com.h2database:h2')
     compile group: 'net.sf.supercsv', name: 'super-csv', version: '2.3.1'
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile ('net.javacrumbs.json-unit:json-unit:2.0.3')
+    testCompile ('net.javacrumbs.json-unit:json-unit-assertj:2.0.3')
+}
+
+jib {
+    to {
+        image = "den-travak-app:0.0.1-SNAPSHOT"
+    }
+    allowInsecureRegistries = true
 }
