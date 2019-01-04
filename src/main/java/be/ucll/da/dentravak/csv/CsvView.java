@@ -23,10 +23,7 @@ public class CsvView extends AbstractCsvView {
         csvWriter.writeHeader(header);
 
         for(Order order : orders){
-            if(order.getPrinted() == false){
-                csvWriter.write(order, header);
-                order.printed();
-            }
+            csvWriter.write(order, header);
         }
 
         csvWriter.close();
