@@ -8,7 +8,13 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
+
+import javax.inject.Inject;
+import javax.naming.ServiceUnavailableException;
 import java.math.BigDecimal;
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

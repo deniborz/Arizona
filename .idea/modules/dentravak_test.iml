@@ -26,7 +26,6 @@
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul-discovery:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:8.0.13" level="project" />
     <orderEntry type="library" name="Gradle: com.h2database:h2:1.4.197" level="project" />
-    <orderEntry type="library" name="Gradle: org.apache.poi:poi:3.9" level="project" />
     <orderEntry type="library" name="Gradle: net.sf.supercsv:super-csv:2.3.1" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-test:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: net.javacrumbs.json-unit:json-unit:2.0.3" level="project" />
@@ -47,7 +46,6 @@
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:5.2.17.Final" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-jpa:2.0.10.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-aspects:5.0.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.11" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-consul-discovery:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: joda-time:joda-time:2.9.9" level="project" />

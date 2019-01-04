@@ -7,6 +7,9 @@
     <facet type="web" name="Web">
       <configuration>
         <webroots />
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/../../src/main/java" />
+        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -15,6 +18,7 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -23,7 +27,6 @@
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-starter-consul-discovery:2.0.1.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:8.0.13" level="project" />
     <orderEntry type="library" name="Gradle: com.h2database:h2:1.4.197" level="project" />
-    <orderEntry type="library" name="Gradle: org.apache.poi:poi:3.9" level="project" />
     <orderEntry type="library" name="Gradle: net.sf.supercsv:super-csv:2.3.1" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-json:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-netflix-core:2.0.1.RELEASE" level="project" />
