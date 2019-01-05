@@ -95,7 +95,7 @@ public class SandwichController {
     //sort allSandwiches by float in preferences
     public List<Sandwich> sortSandwiches(SandwichPreferences preferences) {
         List<Sandwich> allSandwiches = repository.findAll();
-        Collections.sort(allSandwiches, Comparator.comparing((Sandwich sandwich) -> getRating(preferences, sandwich)));
+        Collections.sort(allSandwiches, Comparator.comparing((Sandwich sandwich) -> getRating(preferences, sandwich)).reversed());
         return allSandwiches;
     }
 
