@@ -43,10 +43,10 @@ class SandwichOrder extends MyCustomElement{
 
   get template(){
     return `<div id="order">
-              <input type="radio" name="breadType" value="Turkish bread" checked="checked"> Turkish bread
-              <input type="radio" name="breadType" value="Wrap"> Wrap
-              <input type="radio" name="breadType" value="Boterhammekes"> Boterhammekes
-              <label for="phoneNumber">Phonenumber:</label>
+              <input style="display: block" type="radio" name="breadType" value="Turkish bread" checked="checked"> Turkish bread
+              <input style="display: block" type="radio" name="breadType" value="Wrap"> Wrap
+              <input style="display: block" type="radio" name="breadType" value="Boterhammekes"> Boterhammekes
+              <label style="display: block" for="phoneNumber">Phonenumber:</label>
               <input type="text" name="phoneNumber" id="phoneNumber"/>
               <button id="confirm">Confirm order</button>
             </div>`

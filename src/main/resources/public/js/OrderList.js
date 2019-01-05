@@ -38,7 +38,7 @@ class OrderList extends MyCustomElement{
   orderTemplate(order){
       return `
           <div>
-            <h3>${order.name}</h3>
+            <h5>${order.name}</h5>
             <p>${order.mobilePhoneNumber}</p>
           </div>
       `

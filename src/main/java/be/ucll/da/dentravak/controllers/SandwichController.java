@@ -13,11 +13,8 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.inject.Inject;
 import javax.naming.ServiceUnavailableException;
-import java.math.BigDecimal;
 import java.net.URI;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @CrossOrigin
 @RestController
@@ -40,7 +37,7 @@ public class SandwichController {
                 .setPrice(new BigDecimal(3.5)).build();
     }*/
 
-    @RequestMapping(value = "/sandwiches/{id}", method = RequestMethod.GET)
+    @RequestMapping("/sandwiches/{id}")
     public ResponseEntity<?> getUser(@PathVariable("id") UUID id) {
         System.out.println("Fetching sandwich with id " + id);
         Optional<Sandwich> sandwich = repository.findById(id);
@@ -55,9 +52,8 @@ public class SandwichController {
     @RequestMapping("/sandwiches")
     public List<Sandwich> sandwiches() {
         try {
-            SandwichPreferences preferences = getPreferences("ronald.dehuysser@ucll.be");
-            //TODO: sort allSandwiches by float in preferences
-            List<Sandwich> sandwiches = repository.findAll();
+            SandwichPreferences preferences = getPreferences("0486777888");
+            List<Sandwich> sandwiches = sortSandwiches(preferences);
             return sandwiches;
         } catch (ServiceUnavailableException e) {
             return repository.findAll();
@@ -94,6 +90,17 @@ public class SandwichController {
                 .stream()
                 .map(si -> si.getUri())
                 .findFirst();
+    }
+
+    //sort allSandwiches by float in preferences
+    public List<Sandwich> sortSandwiches(SandwichPreferences preferences) {
+        List<Sandwich> allSandwiches = repository.findAll();
+        Collections.sort(allSandwiches, Comparator.comparing((Sandwich sandwich) -> getRating(preferences, sandwich)));
+        return allSandwiches;
+    }
+
+    public Float getRating(SandwichPreferences preferences, Sandwich sandwich) {
+        return preferences.getRatingForSandwich(sandwich.getId());
     }
 
 //    @RequestMapping("/sandwiches/cart")
