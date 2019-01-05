@@ -100,7 +100,6 @@ public class SandwichController {
     }
 
     public Float getRating(SandwichPreferences preferences, Sandwich sandwich) {
-        System.out.println(sandwich.getName() + ": " + preferences.getRatingForSandwich(sandwich.getId()));
         if(preferences.getRatingForSandwich(sandwich.getId()) == null) return Float.parseFloat("0");
         else return preferences.getRatingForSandwich(sandwich.getId());
     }
