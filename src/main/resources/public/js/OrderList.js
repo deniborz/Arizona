@@ -42,7 +42,7 @@ class OrderList extends MyCustomElement{
           <div>
             <h5>${order.name}</h5>
             <p>${order.mobilePhoneNumber}</p>
-            <p>${printed}</p>
+            <p>${order.printed}</p>
           </div>
       `
   }
