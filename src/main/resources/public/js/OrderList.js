@@ -42,7 +42,7 @@ class OrderList extends MyCustomElement{
           <div>
             <h5>${order.name}</h5>
             <p>${order.mobilePhoneNumber}</p>
-            <p>${order.printed}</p>
+            <p>${printed}</p>
           </div>
       `
   }
@@ -50,7 +50,7 @@ class OrderList extends MyCustomElement{
     return `<div id="orders">
               <h3>Today's orders</h3>
             </div>
-            <a href="http://193.191.177.8:10098/den-travak/download" class="btn btn-outline-success">Download</a>`
+            <a onclick="updateOrders()" href="http://193.191.177.8:10098/den-travak/download" class="btn btn-outline-success">Download</a>`
   }
 }
 
