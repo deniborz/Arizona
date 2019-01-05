@@ -39,7 +39,8 @@ class SandwichOrderConfirm extends MyCustomElement{
   }
 
   setupEventListeners(){
-      document.querySelectorAll(".rating").forEach(button => console.log("button", button));
+      const ratingButtons = document.getElementsByClassName("rating");
+      [].forEach.call(ratingButtons, function (button) {console.log("button", button)});
   }
 
   saveRating(rating) {
