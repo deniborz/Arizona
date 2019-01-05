@@ -3,7 +3,7 @@ import MyCustomElement from './MyCustomElement.js'
 class SandwichOrderConfirm extends MyCustomElement{
   connectedCallback(){
     super.connectedCallback()
-      this.addEventListeners()
+      this.setupEventListeners()
   }
 
   orderTemplate(order){
@@ -15,12 +15,12 @@ class SandwichOrderConfirm extends MyCustomElement{
             </div>
             <div>
                 <p>Rating geven:</p>
-                <button data-rating="1" class="btn btn-warning rating">1</button>
-                <button data-rating="2" class="btn btn-warning rating">2</button>
-                <button data-rating="3" class="btn btn-warning rating">3</button>
-                <button data-rating="4" class="btn btn-warning rating">4</button>
-                <button data-rating="5" class="btn btn-warning rating">5</button>
-                </br>
+                <button type="button" data-rating="1" class="btn btn-warning rating">1</button>
+                <button type="button" data-rating="2" class="btn btn-warning rating">2</button>
+                <button type="button" data-rating="3" class="btn btn-warning rating">3</button>
+                <button type="button" data-rating="4" class="btn btn-warning rating">4</button>
+                <button type="button" data-rating="5" class="btn btn-warning rating">5</button>
+                </br></br>
                 <a href="index.html">Terug naar overzicht</a>
             </div>
       `
@@ -38,7 +38,7 @@ class SandwichOrderConfirm extends MyCustomElement{
     this.shadowRoot.getElementById('order-confirm').appendChild(orderElement)
   }
 
-  addEventListeners() {
+  setupEventListeners() {
       this.shadowRoot.querySelectorAll('button.rating')
           .forEach(button => button.addEventListener('click', e => {
 
