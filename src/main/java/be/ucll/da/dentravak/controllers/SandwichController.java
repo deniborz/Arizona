@@ -100,7 +100,8 @@ public class SandwichController {
     }
 
     public Float getRating(SandwichPreferences preferences, Sandwich sandwich) {
-        return preferences.getRatingForSandwich(sandwich.getId());
+        if(preferences.getRatingForSandwich(sandwich.getId()) == null) return Float.parseFloat("0");
+        else return preferences.getRatingForSandwich(sandwich.getId());
     }
 
 //    @RequestMapping("/sandwiches/cart")
