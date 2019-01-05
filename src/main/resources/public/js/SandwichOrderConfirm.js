@@ -14,11 +14,11 @@ class SandwichOrderConfirm extends MyCustomElement{
             </div>
             <div>
                 <p>Rating geven:</p>
-                <a onclick="saveRating(1, ${order.sandwichId})" class="btn btn-warning rating">1</a>
-                <a onclick="saveRating(2, ${order.sandwichId})" class="btn btn-warning rating">2</a>
-                <a onclick="saveRating(3, ${order.sandwichId})" class="btn btn-warning rating">3</a>
-                <a onclick="saveRating(4, ${order.sandwichId})" class="btn btn-warning rating">4</a>
-                <a onclick="saveRating(5, ${order.sandwichId})" class="btn btn-warning rating">5</a>
+                <a onclick="saveRating(1, '${order.sandwichId}')" class="btn btn-warning rating">1</a>
+                <a onclick="saveRating(2, '${order.sandwichId}')" class="btn btn-warning rating">2</a>
+                <a onclick="saveRating(3, '${order.sandwichId}')" class="btn btn-warning rating">3</a>
+                <a onclick="saveRating(4, '${order.sandwichId}')" class="btn btn-warning rating">4</a>
+                <a onclick="saveRating(5, '${order.sandwichId}')" class="btn btn-warning rating">5</a>
                 </br></br>
                 <a href="index.html">Terug naar overzicht</a>
             </div>
