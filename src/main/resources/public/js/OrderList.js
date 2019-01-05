@@ -40,10 +40,10 @@ class OrderList extends MyCustomElement{
       if(order.printed == true) printed = "printed";
       return `
         <div class="card" style="width: 18rem; margin-bottom: 15px">
-            <div class="card-body">
+            <div style="padding: 1rem !important;" class="card-body">
                 <h5>${order.name}</h5>
                 <p>${order.mobilePhoneNumber}</p>
-                <p class=".text-info">${printed}</p>
+                <p style="margin-bottom: 0;font-size: 1.2rem;" class="text-info">${printed}</p>
             </div>
         </div>
       `
