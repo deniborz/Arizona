@@ -43,7 +43,7 @@ class SandwichOrderConfirm extends MyCustomElement{
           .forEach(button => button.addEventListener('click', e => {
 
               let recommendedSandwich = {
-                  emailAddress : this.order.mobilePhoneNumber,
+                  emailAddress : "ronald.dehuysser@ucll.be",
                   ratedItem : this.order.sandwichId,
                   rating : button.dataset.rating
               };

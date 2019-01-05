@@ -52,7 +52,7 @@ public class SandwichController {
     @RequestMapping("/sandwiches")
     public List<Sandwich> sandwiches() {
         try {
-            SandwichPreferences preferences = getPreferences("0486777888");
+            SandwichPreferences preferences = getPreferences("ronald.dehuysser@ucll.be");
             List<Sandwich> sandwiches = sortSandwiches(preferences);
             return sandwiches;
         } catch (ServiceUnavailableException e) {
