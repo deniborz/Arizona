@@ -12,7 +12,7 @@ class SandwichOrderConfirm extends MyCustomElement{
               <p>${order.breadType}</p>
               <p>€ ${order.price}</p>
             </div>
-            <div>
+            <div style="margin-bottom: 20px">
                 <p>Rating geven:</p>
                 <a onclick="saveRating(1, '${order.sandwichId}')" class="btn btn-warning rating">1</a>
                 <a onclick="saveRating(2, '${order.sandwichId}')" class="btn btn-warning rating">2</a>

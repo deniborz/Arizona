@@ -39,18 +39,21 @@ class OrderList extends MyCustomElement{
       let printed = "not printed";
       if(order.printed == true) printed = "printed";
       return `
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5>${order.name}</h5>
+                <p>${order.mobilePhoneNumber}</p>
+                <label class="card-link">${printed}</label>
+              </div>
+            </div>
           <div>
-            <h5>${order.name}</h5>
-            <p>${order.mobilePhoneNumber}</p>
-            <p>${printed}</p>
-          </div>
       `
   }
   get template(){
     return `<div id="orders">
               <h3>Today's orders</h3>
             </div>
-            <a onclick="updateOrders()" href="http://193.191.177.8:10098/den-travak/download" class="btn btn-outline-success">Download</a>`
+            <a href="http://193.191.177.8:10098/den-travak/download" class="btn btn-outline-success">Download</a>`
   }
 }
 

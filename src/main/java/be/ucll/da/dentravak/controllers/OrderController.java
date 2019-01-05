@@ -22,6 +22,12 @@ public class OrderController {
         return order;
     }
 
+    @PutMapping("/orders")
+    public Order updateOrder(@RequestBody Order order){
+        repository.save(order);
+        return order;
+    }
+
     @RequestMapping("/orders")
     public List<Order> getOrdersByDate(@RequestParam(value = "date", required = false) String date) {
         if (date == null){
@@ -33,7 +39,10 @@ public class OrderController {
     @RequestMapping(value = "/download", method = RequestMethod.GET)
     public CsvView download(Model model) {
         model.addAttribute("orders", findByDate(LocalDate.now().toString()));
-        findByDate(LocalDate.now().toString()).forEach(order -> order.printed());
+        findByDate(LocalDate.now().toString()).forEach(order -> {
+            order.printed();
+            this.updateOrder(order);
+        });
         return new CsvView();
     }
 
