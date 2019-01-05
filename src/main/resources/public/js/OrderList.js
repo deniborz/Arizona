@@ -39,14 +39,13 @@ class OrderList extends MyCustomElement{
       let printed = "not printed";
       if(order.printed == true) printed = "printed";
       return `
-            <div class="card" style="width: 18rem;">
-              <div class="card-body">
+        <div class="card" style="width: 18rem; margin-bottom: 15px">
+            <div class="card-body">
                 <h5>${order.name}</h5>
                 <p>${order.mobilePhoneNumber}</p>
-                <label class="card-link">${printed}</label>
-              </div>
+                <p class=".text-info">${printed}</p>
             </div>
-          <div>
+        </div>
       `
   }
   get template(){
