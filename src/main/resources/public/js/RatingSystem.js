@@ -1,7 +1,7 @@
-function saveRating(rating, order) {
+function saveRating(rating, sandwichId) {
     let recommendedSandwich = {
         emailAddress : "ronald.dehuysser@ucll.be",
-        ratedItem : order.sandwichId,
+        ratedItem : sandwichId,
         rating : rating
     };
 
