@@ -2,8 +2,8 @@ import MyCustomElement from './MyCustomElement.js'
 
 class SandwichOrder extends MyCustomElement{
   connectedCallback(){
-    super.connectedCallback()
-    this.setupEventListeners()
+    super.connectedCallback();
+    this.setupEventListeners();
     var script = document.createElement('script');
     script.src = 'http://code.jquery.com/jquery-1.11.0.min.js';
     script.type = 'text/javascript';

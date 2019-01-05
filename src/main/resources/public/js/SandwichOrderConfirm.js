@@ -3,6 +3,7 @@ import MyCustomElement from './MyCustomElement.js'
 class SandwichOrderConfirm extends MyCustomElement{
   connectedCallback(){
     super.connectedCallback();
+    this.setupEventListeners();
   }
 
   orderTemplate(order){
@@ -14,11 +15,11 @@ class SandwichOrderConfirm extends MyCustomElement{
             </div>
             <div>
                 <p>Rating geven:</p>
-                <a onclick="saveRating(1)" class="btn btn-warning rating">1</a>
-                <a onclick="saveRating(2)" class="btn btn-warning rating">2</a>
-                <a onclick="saveRating(3)" class="btn btn-warning rating">3</a>
-                <a onclick="saveRating(4)" class="btn btn-warning rating">4</a>
-                <a onclick="saveRating(5)" class="btn btn-warning rating">5</a>
+                <button class="btn btn-warning rating">1</button>
+                <button class="btn btn-warning rating">2</button>
+                <button class="btn btn-warning rating">3</button>
+                <button class="btn btn-warning rating">4</button>
+                <button class="btn btn-warning rating">5</button>
                 </br></br>
                 <a href="index.html">Terug naar overzicht</a>
             </div>
@@ -35,6 +36,10 @@ class SandwichOrderConfirm extends MyCustomElement{
     let orderElement = document.createElement('div')
     orderElement.innerHTML = this.orderTemplate(order)
     this.shadowRoot.getElementById('order-confirm').appendChild(orderElement)
+  }
+
+  setupEventListeners(){
+      this.shadowRoot.querySelectorAll("button.rating").forEach(button => console.log("button", button));
   }
 
   saveRating(rating) {
@@ -55,6 +60,6 @@ class SandwichOrderConfirm extends MyCustomElement{
       })
           .then(resp => resp.json())
           .then(response => alert('Bedankt!'));
-  };
+  }
 }
 customElements.define('sandwich-order-confirmation', SandwichOrderConfirm);
