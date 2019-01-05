@@ -42,7 +42,7 @@ class SandwichOrderConfirm extends MyCustomElement{
       console.log("adding...");
       this.shadowRoot.querySelectorAll('button.rating')
           .forEach(button => button.addEventListener('click', (e) => {
-
+              console.log("button1" + button.dataset.rating);
               let recommendedSandwich = {
                   emailAddress : "ronald.dehuysser@ucll.be",
                   ratedItem : this.order.sandwichId,
